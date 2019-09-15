@@ -1,3 +1,23 @@
+source-repository-package
+  type: git
+  location: git://github.com/prozacchiwawa/transformers-compat.git
+  branch: master
+
+source-repository-package
+  type: git
+  location: git://github.com/prozacchiwawa/csv-conduit.git
+  branch: master
+
+source-repository-package
+  type: git
+  location: git://github.com/prozacchiwawa/haskell-src-exts.git
+  branch: master
+
+source-repository-package
+  type: git
+  location: git://github.com/prozacchiwawa/haskell-src-meta.git
+  branch: only-haskell-src-meta
+
 -- http://cabal.readthedocs.io/en/latest/nix-local-build-overview.html
 packages: .
 -- packages: examples/

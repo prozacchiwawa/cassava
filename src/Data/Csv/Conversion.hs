@@ -810,9 +810,9 @@ instance ToField a => ToField (Identity a) where
     {-# INLINE toField #-}
 
 -- | @since 0.5.2.0
-instance FromField a => FromField (Const a b) where
-    parseField = fmap getConst . parseField
-    {-# INLINE parseField #-}
+-- instance FromField a => FromField (Const a b) where
+--     parseField = fmap getConst . parseField
+--     {-# INLINE parseField #-}
 
 -- | @since 0.5.2.0
 instance ToField a => ToField (Const a b) where
@@ -1394,12 +1394,12 @@ instance GToNamedRecordHeader a => GToNamedRecordHeader (M1 C c a)
 
 -- | Instance to ensure that you cannot derive DefaultOrdered for
 -- constructors without selectors.
-#if MIN_VERSION_base(4,9,0)
-instance DefaultOrdered (M1 S ('MetaSel 'Nothing srcpk srcstr decstr) a ())
-         => GToNamedRecordHeader (M1 S ('MetaSel 'Nothing srcpk srcstr decstr) a)
-#else
+-- #if MIN_VERSION_base(4,9,0)
+-- instance DefaultOrdered (M1 S ('MetaSel 'Nothing srcpk srcstr decstr) a ())
+--          => GToNamedRecordHeader (M1 S ('MetaSel 'Nothing srcpk srcstr decstr) a)
+-- #else
 instance DefaultOrdered (M1 S NoSelector a ()) => GToNamedRecordHeader (M1 S NoSelector a)
-#endif
+-- #endif
   where
     gtoNamedRecordHeader _ _ =
         error "You cannot derive DefaultOrdered for constructors without selectors."
